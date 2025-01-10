@@ -22,7 +22,7 @@ const LoginSection = () => {
 
     try {
       const response = await fetch(
-        "https://77c7-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/users",
+        "https://1a1c-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/users",
         {
           headers: {
             "ngrok-skip-browser-warning": "true",
