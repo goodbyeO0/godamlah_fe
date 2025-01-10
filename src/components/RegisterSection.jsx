@@ -28,7 +28,7 @@ const RegisterSection = ({ setIsRegistered }) => {
 
     try {
       const response = await fetch(
-        "https://022e-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/register",
+        "https://eea4-2001-d08-e1-3339-ec8e-9753-ceeb-6949.ngrok-free.app/api/register",
         {
           method: "POST",
           headers: {
