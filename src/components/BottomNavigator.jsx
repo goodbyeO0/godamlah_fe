@@ -5,7 +5,7 @@ const BottomNavigator = () => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { icon: "👤", label: "User", path: "/" },
+    { icon: "👤", label: "User", path: "/user" },
     { icon: "🏆", label: "Challenge", path: "/challenge" },
     { icon: "📊", label: "Leaderboard", path: "/leaderboard" },
     { icon: "📈", label: "Analysis", path: "/analysis" },

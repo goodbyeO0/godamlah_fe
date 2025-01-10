@@ -177,36 +177,6 @@ const UserSection = () => {
         )}
       </div>
 
-      {/* Recent Activities */}
-      <div className="mt-8 w-full">
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold">Related article</h2>
-        </div>
-
-        {/* Article Section */}
-        <div
-          className="relative rounded-lg shadow-lg cursor-pointer overflow-hidden hover:opacity-90 transition"
-          onClick={() => alert("Navigating to article page")}
-        >
-          <img
-            src="src/assets/ai.webp"
-            alt="Article"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 text-white w-full flex flex-col rounded-b-lg">
-            <span className="text-sm font-medium mb-1">
-              Telegram Agrees to Share User Data With Authorities
-            </span>
-            <div className="text-xs flex justify-between items-center">
-              <span>5 min</span>
-              <div className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">
-                News
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Bottom Navigation */}
       <div className="absolute bottom-0 left-0 w-full bg-white shadow-md">
         <div className="flex justify-around py-3 text-gray-600">
