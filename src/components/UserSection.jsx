@@ -117,11 +117,6 @@ const UserSection = () => {
             {monitoringStatus ? "Monitoring Active" : "Starting Monitoring..."}
           </p>
         </div>
-        <img
-          src="src/assets/davina.jpg"
-          alt="Profile"
-          className="w-24 h-20 rounded-full"
-        />
       </div>
 
       {/* Report Section */}
