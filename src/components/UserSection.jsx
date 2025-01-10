@@ -28,10 +28,11 @@ const UserSection = () => {
         console.log("Starting monitoring for:", user.telegramUsername);
 
         const response = await fetch(
-          "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/startMonitoring",
+          "https://3113-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/",
           {
             method: "POST",
             headers: {
+              "ngrok-skip-browser-warning": "true",
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
@@ -76,10 +77,11 @@ const UserSection = () => {
     if (groupLink.trim()) {
       try {
         const response = await fetch(
-          "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/joinGroupViaLink",
+          "https://3113-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/joinGroupViaLink",
           {
             method: "POST",
             headers: {
+              "ngrok-skip-browser-warning": "true",
               "Content-Type": "application/json",
             },
             body: JSON.stringify({ inviteLink: groupLink }),

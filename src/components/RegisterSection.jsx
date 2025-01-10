@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiUser, FiMail, FiLock, FiSend } from "react-icons/fi";
-import axios from "axios";
 
 const RegisterSection = ({ setIsRegistered }) => {
   const [formData, setFormData] = useState({
@@ -28,22 +27,34 @@ const RegisterSection = ({ setIsRegistered }) => {
     }
 
     try {
-      const response = await axios.post(
-        "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/register",
+      const response = await fetch(
+        "https://3113-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app//api/register",
         {
-          fullName: formData.fullName,
-          email: formData.email,
-          password: formData.password,
-          telegramUsername: formData.telegramUsername,
+          method: "POST",
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullName: formData.fullName,
+            email: formData.email,
+            password: formData.password,
+            telegramUsername: formData.telegramUsername,
+          }),
         }
       );
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
       setIsRegistered(true);
       alert("Registration successful! Please log in.");
       navigate("/login");
     } catch (error) {
       const errorMessage =
-        error.response?.data?.error || "Registration failed. Please try again.";
+        error.message || "Registration failed. Please try again.";
       alert(errorMessage);
       console.error("Registration error:", error);
     }

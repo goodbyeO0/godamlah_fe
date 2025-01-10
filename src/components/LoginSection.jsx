@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiMail, FiLock } from "react-icons/fi";
-import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
 const LoginSection = () => {
@@ -22,12 +21,29 @@ const LoginSection = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(
-        "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/users"
+      const response = await fetch(
+        "https://3113-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/users",
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+            "Content-Type": "application/json",
+          },
+        }
       );
-      const users = response.data.users;
 
-      const user = users.find(
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Users data:", data);
+      console.log("Users array:", data.users);
+
+      if (!Array.isArray(data.users)) {
+        throw new Error("Expected users to be an array");
+      }
+
+      const user = data.users.find(
         (u) =>
           (u.email === formData.emailOrUsername ||
             u.telegramUsername === formData.emailOrUsername) &&
@@ -44,7 +60,12 @@ const LoginSection = () => {
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert("Login failed. Please try again.");
+      console.error("Error details:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+      });
+      alert("Login failed. Please check your connection and try again.");
     }
   };
 
