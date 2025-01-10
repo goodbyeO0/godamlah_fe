@@ -48,6 +48,26 @@ const LeaderboardSection = () => {
           </div>
         ))}
       </div>
+      {/* Bottom Navigation */}
+      <div className="absolute bottom-0 left-0 w-full bg-white shadow-md">
+        <div className="flex justify-around py-3 text-gray-600">
+          {[
+            { icon: "👤", label: "User" },
+            { icon: "🏆", label: "Challenge" },
+            { icon: "📊", label: "Leaderboard" },
+            { icon: "📄", label: "Report" },
+            { icon: "📈", label: "Analysis" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center cursor-pointer hover:text-blue-600 transition"
+            >
+              <span className="text-2xl">{item.icon}</span>
+              <p className="text-xs">{item.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

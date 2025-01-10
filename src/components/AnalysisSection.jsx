@@ -47,15 +47,39 @@ const AnalysisSection = () => {
 
       {/* Scam Reports - Bar Chart */}
       <div className="bg-white p-4 rounded-lg shadow-md">
-        <h3 className="text-sm font-semibold text-gray-700 mb-2">Scam Reports</h3>
+        <h3 className="text-sm font-semibold text-gray-700 mb-2">
+          Scam Reports
+        </h3>
         <p className="text-lg font-bold text-gray-800">
           12,475 Telegram Groups Detected as Scams
-          <span className="text-green-500 text-sm ml-2">▲ 3.4% vs last week</span>
+          <span className="text-green-500 text-sm ml-2">
+            ▲ 3.4% vs last week
+          </span>
         </p>
         <p className="text-xs text-gray-500 mb-4">
           Scams Detected from 1-12 Dec, 2024
         </p>
         <Bar data={barData} />
+      </div>
+      {/* Bottom Navigation */}
+      <div className="absolute bottom-0 left-0 w-full bg-white shadow-md">
+        <div className="flex justify-around py-3 text-gray-600">
+          {[
+            { icon: "👤", label: "User" },
+            { icon: "🏆", label: "Challenge" },
+            { icon: "📊", label: "Leaderboard" },
+            { icon: "📄", label: "Report" },
+            { icon: "📈", label: "Analysis" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col items-center cursor-pointer hover:text-blue-600 transition"
+            >
+              <span className="text-2xl">{item.icon}</span>
+              <p className="text-xs">{item.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
