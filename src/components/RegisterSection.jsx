@@ -28,12 +28,15 @@ const RegisterSection = ({ setIsRegistered }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3000/api/register", {
-        fullName: formData.fullName,
-        email: formData.email,
-        password: formData.password,
-        telegramUsername: formData.telegramUsername,
-      });
+      const response = await axios.post(
+        "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/register",
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+          telegramUsername: formData.telegramUsername,
+        }
+      );
 
       setIsRegistered(true);
       alert("Registration successful! Please log in.");

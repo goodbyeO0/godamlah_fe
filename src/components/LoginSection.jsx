@@ -22,7 +22,9 @@ const LoginSection = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.get("http://localhost:3000/api/users");
+      const response = await axios.get(
+        "https://bc16-2001-d08-e1-3339-149-5576-278e-d0dd.ngrok-free.app/api/users"
+      );
       const users = response.data.users;
 
       const user = users.find(
